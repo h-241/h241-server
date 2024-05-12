@@ -1,4 +1,7 @@
+from datetime import datetime
 import logging
+
+from app.state import state
 
 from sqlalchemy import Engine
 from sqlmodel import Session, select
@@ -31,6 +34,7 @@ def init(db_engine: Engine) -> None:
 
 def main() -> None:
     logger.info("Initializing service")
+    state.backend_start = datetime.now()
     init(engine)
     logger.info("Service finished initializing")
 

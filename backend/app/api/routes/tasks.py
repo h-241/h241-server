@@ -9,8 +9,6 @@ from app.models.auth import Job, JobCreate, ItemPublic, ItemsPublic, JobUpdate, 
 router = APIRouter()
 
 
-
-
 @router.get()
 def create_task_request(*,
     session: SessionDep,
