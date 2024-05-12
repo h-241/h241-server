@@ -13,6 +13,6 @@ class TokenPayload(SQLModel):
     sub: int | None = None
 
 
-class NewPassword(SQLModel):
+class NewPassword(BaseModel):
     token: str
     new_password: str
