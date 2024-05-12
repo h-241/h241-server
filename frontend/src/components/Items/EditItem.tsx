@@ -18,7 +18,7 @@ import { type SubmitHandler, useForm } from "react-hook-form"
 import {
   type ApiError,
   type ItemPublic,
-  type ItemUpdate,
+  type JobUpdate,
   ItemsService,
 } from "../../client"
 import useCustomToast from "../../hooks/useCustomToast"
@@ -37,14 +37,14 @@ const EditItem = ({ item, isOpen, onClose }: EditItemProps) => {
     handleSubmit,
     reset,
     formState: { isSubmitting, errors, isDirty },
-  } = useForm<ItemUpdate>({
+  } = useForm<JobUpdate>({
     mode: "onBlur",
     criteriaMode: "all",
     defaultValues: item,
   })
 
   const mutation = useMutation({
-    mutationFn: (data: ItemUpdate) =>
+    mutationFn: (data: JobUpdate) =>
       ItemsService.updateItem({ id: item.id, requestBody: data }),
     onSuccess: () => {
       showToast("Success!", "Item updated successfully.", "success")
@@ -59,7 +59,7 @@ const EditItem = ({ item, isOpen, onClose }: EditItemProps) => {
     },
   })
 
-  const onSubmit: SubmitHandler<ItemUpdate> = async (data) => {
+  const onSubmit: SubmitHandler<JobUpdate> = async (data) => {
     mutation.mutate(data)
   }
 

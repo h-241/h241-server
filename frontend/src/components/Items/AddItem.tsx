@@ -15,7 +15,7 @@ import {
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { type SubmitHandler, useForm } from "react-hook-form"
 
-import { type ApiError, type ItemCreate, ItemsService } from "../../client"
+import { type ApiError, type JobCreate, ItemsService } from "../../client"
 import useCustomToast from "../../hooks/useCustomToast"
 
 interface AddItemProps {
@@ -31,7 +31,7 @@ const AddItem = ({ isOpen, onClose }: AddItemProps) => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<ItemCreate>({
+  } = useForm<JobCreate>({
     mode: "onBlur",
     criteriaMode: "all",
     defaultValues: {
@@ -41,7 +41,7 @@ const AddItem = ({ isOpen, onClose }: AddItemProps) => {
   })
 
   const mutation = useMutation({
-    mutationFn: (data: ItemCreate) =>
+    mutationFn: (data: JobCreate) =>
       ItemsService.createItem({ requestBody: data }),
     onSuccess: () => {
       showToast("Success!", "Item created successfully.", "success")
@@ -57,7 +57,7 @@ const AddItem = ({ isOpen, onClose }: AddItemProps) => {
     },
   })
 
-  const onSubmit: SubmitHandler<ItemCreate> = (data) => {
+  const onSubmit: SubmitHandler<JobCreate> = (data) => {
     mutation.mutate(data)
   }
 

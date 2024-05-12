@@ -2,7 +2,7 @@ import type { CancelablePromise } from './core/CancelablePromise';
 import { OpenAPI } from './core/OpenAPI';
 import { request as __request } from './core/request';
 
-import type { Body_login_login_access_token,Message,NewPassword,Token,UserPublic,UpdatePassword,UserCreate,UserRegister,UsersPublic,UserUpdate,UserUpdateMe,ItemCreate,ItemPublic,ItemsPublic,ItemUpdate } from './models';
+import type { Body_login_login_access_token,Message,NewPassword,Token,UserPublic,UpdatePassword,UserCreate,UserRegister,UsersPublic,UserUpdate,UserUpdateMe,JobCreate,ItemPublic,ItemsPublic,JobUpdate } from './models';
 
 export type TDataLoginAccessToken = {
                 formData: Body_login_login_access_token
@@ -389,7 +389,7 @@ skip?: number
                 
             }
 export type TDataCreateItem = {
-                requestBody: ItemCreate
+                requestBody: JobCreate
                 
             }
 export type TDataReadItem = {
@@ -398,7 +398,7 @@ export type TDataReadItem = {
             }
 export type TDataUpdateItem = {
                 id: number
-requestBody: ItemUpdate
+requestBody: JobUpdate
                 
             }
 export type TDataDeleteItem = {
